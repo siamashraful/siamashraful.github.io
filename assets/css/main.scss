@@ -16,6 +16,12 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
+  --surface: #ffffff;
+  --surface-alt: #f3f5f9;
+  --text: #1f2933;
+  --muted: #52606d;
+  --border: rgba(82, 96, 109, 0.2);
+  --accent: #2563eb;
 }
 
 :root[data-theme="dark"] {
@@ -73,6 +79,18 @@ body {
 
 .skip-link:focus {
   transform: translateY(40px);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .container {
