@@ -5,5 +5,7 @@
   {% if site.author.social.github %}
   <li><a rel="me" href="{{ site.author.social.github }}">GitHub</a></li>
   {% endif %}
-  <li><a href="{{ site.author.social.rss | default: '/feed.xml' | relative_url }}">RSS</a></li>
+  {% if site.author.email %}
+  <li><a href="mailto:{{ site.author.email }}">Email</a></li>
+  {% endif %}
 </ul>
