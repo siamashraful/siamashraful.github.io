@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Gradient hero illustration</title>
+  <desc id="desc">Soft flowing gradient background with abstract shapes and guiding headline.</desc>
+  <defs>
+    <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5b8def" />
+      <stop offset="50%" stop-color="#8f6ee5" />
+      <stop offset="100%" stop-color="#f29ab5" />
+    </linearGradient>
+    <radialGradient id="hero-radial" cx="80%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.8)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#hero-gradient)" rx="48" ry="48" />
+  <ellipse cx="320" cy="520" rx="220" ry="80" fill="rgba(0,0,0,0.05)" />
+  <path d="M150 420 Q320 300 480 420 T810 420" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="10" stroke-linecap="round" />
+  <circle cx="950" cy="160" r="140" fill="url(#hero-radial)" />
+  <g fill="rgba(255,255,255,0.45)">
+    <circle cx="210" cy="160" r="32" />
+    <circle cx="540" cy="120" r="24" />
+    <circle cx="740" cy="280" r="20" />
+  </g>
+  <text x="180" y="250" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="64" fill="#ffffff" letter-spacing="1">
+    Imagine. Build. Iterate.
+  </text>
+  <text x="180" y="320" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.8)">
+    Crafting thoughtful digital experiences every day.
+  </text>
+</svg>
