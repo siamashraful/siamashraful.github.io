@@ -1,59 +1,67 @@
 (function () {
-  const storageKey = 'sa-theme';
-  const root = document.documentElement;
-  const button = document.getElementById('theme-toggle');
+  var storageKey = 'theme';
+  var root = document.documentElement;
+  var button = document.getElementById('theme-toggle');
   if (!button) return;
 
-  const media = window.matchMedia('(prefers-color-scheme: dark)');
-
-  function updateButton(mode) {
-    const next = mode === 'dark' ? 'light' : mode === 'light' ? 'auto' : media.matches ? 'light' : 'dark';
-    button.dataset.mode = mode;
-    button.setAttribute('aria-pressed', mode === 'dark');
-    const label = `Switch to ${next} mode`;
-    button.setAttribute('title', label);
-    button.setAttribute('aria-label', label);
+  function prefersDark() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   }
 
-  function setTheme(mode, persist = true) {
-    const theme = mode === 'dark' || mode === 'light' ? mode : 'auto';
-    if (theme === 'auto') {
-      if (media.matches) {
-        root.setAttribute('data-theme', 'dark');
-      } else {
-        root.removeAttribute('data-theme');
+  function safeGet() {
+    try {
+      var stored = localStorage.getItem(storageKey);
+      if (stored === 'dark' || stored === 'light') {
+        return stored;
       }
-    } else {
-      root.setAttribute('data-theme', theme);
+    } catch (err) {
+      /* ignore */
     }
+    return null;
+  }
+
+  function safeSet(value) {
+    try {
+      localStorage.setItem(storageKey, value);
+    } catch (err) {
+      /* ignore */
+    }
+  }
+
+  function currentTheme() {
+    var attribute = root.getAttribute('data-theme');
+    if (attribute === 'dark' || attribute === 'light') {
+      return attribute;
+    }
+    var stored = safeGet();
+    if (stored) {
+      return stored;
+    }
+    return prefersDark() ? 'dark' : 'light';
+  }
+
+  function updateButton(theme) {
+    var isDark = theme === 'dark';
+    var next = isDark ? 'light' : 'dark';
+    button.textContent = isDark ? '🌞' : '🌙';
+    button.setAttribute('aria-pressed', String(isDark));
+    button.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+    button.setAttribute('title', 'Switch to ' + next + ' mode');
+  }
+
+  function applyTheme(theme, persist) {
+    var mode = theme === 'dark' ? 'dark' : 'light';
+    root.setAttribute('data-theme', mode);
+    updateButton(mode);
     if (persist) {
-      localStorage.setItem(storageKey, theme);
+      safeSet(mode);
     }
-    updateButton(theme);
   }
 
-  const stored = localStorage.getItem(storageKey);
-  if (stored) {
-    setTheme(stored);
-  } else {
-    setTheme('auto', false);
-  }
+  applyTheme(currentTheme(), false);
 
-  media.addEventListener('change', () => {
-    const current = localStorage.getItem(storageKey) || 'auto';
-    if (current === 'auto') {
-      setTheme('auto', false);
-    }
-  });
-
-  button.addEventListener('click', () => {
-    const current = localStorage.getItem(storageKey) || 'auto';
-    if (current === 'dark') {
-      setTheme('light');
-    } else if (current === 'light') {
-      setTheme('auto');
-    } else {
-      setTheme('dark');
-    }
+  button.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next, true);
   });
 })();
