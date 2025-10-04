@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" data-theme="auto">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.remove('no-js');
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'dark' || stored === 'light') {
+          root.setAttribute('data-theme', stored);
+        }
+      } catch (err) {
+        /* localStorage may be unavailable; ignore */
+      }
+    })();
+  </script>
   {% include head/custom.html %}
 </head>
 <body>
@@ -14,5 +28,6 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
 </body>
 </html>

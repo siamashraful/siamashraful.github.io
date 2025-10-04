@@ -1,59 +1,53 @@
 (function () {
-  const storageKey = 'sa-theme';
-  const root = document.documentElement;
-  const button = document.getElementById('theme-toggle');
+  var storageKey = 'theme';
+  var root = document.documentElement;
+  var button = document.getElementById('theme-toggle');
   if (!button) return;
 
-  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  function safeGet() {
+    try {
+      return localStorage.getItem(storageKey);
+    } catch (err) {
+      return null;
+    }
+  }
 
-  function updateButton(mode) {
-    const next = mode === 'dark' ? 'light' : mode === 'light' ? 'auto' : media.matches ? 'light' : 'dark';
-    button.dataset.mode = mode;
-    button.setAttribute('aria-pressed', mode === 'dark');
-    const label = `Switch to ${next} mode`;
-    button.setAttribute('title', label);
+  function safeSet(value) {
+    try {
+      localStorage.setItem(storageKey, value);
+    } catch (err) {
+      /* ignore */
+    }
+  }
+
+  function updateButton(theme) {
+    var isDark = theme === 'dark';
+    var label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    button.textContent = isDark ? '☀️' : '🌙';
+    button.setAttribute('aria-pressed', String(isDark));
     button.setAttribute('aria-label', label);
+    button.setAttribute('title', label);
   }
 
-  function setTheme(mode, persist = true) {
-    const theme = mode === 'dark' || mode === 'light' ? mode : 'auto';
-    if (theme === 'auto') {
-      if (media.matches) {
-        root.setAttribute('data-theme', 'dark');
-      } else {
-        root.removeAttribute('data-theme');
-      }
-    } else {
-      root.setAttribute('data-theme', theme);
-    }
+  function applyTheme(theme, persist) {
+    var mode = theme === 'dark' ? 'dark' : 'light';
+    root.setAttribute('data-theme', mode);
+    updateButton(mode);
     if (persist) {
-      localStorage.setItem(storageKey, theme);
+      safeSet(mode);
     }
-    updateButton(theme);
   }
 
-  const stored = localStorage.getItem(storageKey);
-  if (stored) {
-    setTheme(stored);
+  var stored = safeGet();
+  if (stored === 'dark' || stored === 'light') {
+    applyTheme(stored, false);
   } else {
-    setTheme('auto', false);
+    var initial = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(initial, false);
   }
 
-  media.addEventListener('change', () => {
-    const current = localStorage.getItem(storageKey) || 'auto';
-    if (current === 'auto') {
-      setTheme('auto', false);
-    }
-  });
-
-  button.addEventListener('click', () => {
-    const current = localStorage.getItem(storageKey) || 'auto';
-    if (current === 'dark') {
-      setTheme('light');
-    } else if (current === 'light') {
-      setTheme('auto');
-    } else {
-      setTheme('dark');
-    }
+  button.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark', true);
   });
 })();
