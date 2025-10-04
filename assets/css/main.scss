@@ -25,7 +25,12 @@
   }
 }
 
+[data-theme="light"] {
+  color-scheme: light;
+}
+
 [data-theme="dark"] {
+  color-scheme: dark;
   --surface: #0f172a;
   --surface-alt: #16213f;
   --text: #f8fafc;
