@@ -197,6 +197,82 @@ article.post {
   padding-left: 1.25rem;
 }
 
+.resume-glass {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 45px -30px rgba(15, 23, 42, 0.45);
+  color: inherit;
+}
+
+:root[data-theme="dark"] .resume-glass {
+  background: rgba(15, 23, 42, 0.55);
+  border-color: rgba(96, 165, 250, 0.25);
+}
+
+.resume-glass h1,
+.resume-glass h2 {
+  margin-top: 0;
+  color: inherit;
+}
+
+.resume-glass h2 {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.resume-glass ul {
+  padding-left: 1.25rem;
+}
+
+.resume-glass li {
+  margin-bottom: 0.75rem;
+}
+
+.btn-resume {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  transition: transform $transition, background-color $transition, box-shadow $transition;
+}
+
+.btn-resume:hover,
+.btn-resume:focus {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 30px -20px rgba(15, 23, 42, 0.4);
+}
+
+:root[data-theme="dark"] .btn-resume {
+  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(96, 165, 250, 0.12);
+}
+
+:root[data-theme="dark"] .btn-resume:hover,
+:root[data-theme="dark"] .btn-resume:focus {
+  background: rgba(96, 165, 250, 0.2);
+}
+
+.last-updated {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.65;
+  text-align: right;
+}
+
 .hero-figure img {
   border-radius: $radius;
   box-shadow: 0 20px 40px -30px rgba(37, 99, 235, 0.4);
