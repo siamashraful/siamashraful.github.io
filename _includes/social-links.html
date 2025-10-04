@@ -1,0 +1,9 @@
+<ul class="social-links">
+  {% if site.author.social.linkedin %}
+  <li><a rel="me" href="{{ site.author.social.linkedin }}">LinkedIn</a></li>
+  {% endif %}
+  {% if site.author.social.github %}
+  <li><a rel="me" href="{{ site.author.social.github }}">GitHub</a></li>
+  {% endif %}
+  <li><a href="{{ site.author.social.rss | default: '/feed.xml' | relative_url }}">RSS</a></li>
+</ul>

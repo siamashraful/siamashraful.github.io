@@ -1,0 +1,19 @@
+{% seo %}
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="preload" as="image" type="image/svg+xml" href="{{ '/assets/img/hero.svg' | relative_url }}">
+<link rel="preload" as="image" type="image/svg+xml" href="{{ '/assets/img/avatar.svg' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.remove('no-js');</script>
+{% if site.analytics.ga4_id %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.ga4_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.analytics.ga4_id }}');
+</script>
+{% endif %}
+<script defer src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>

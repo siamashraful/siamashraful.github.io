@@ -1,0 +1,51 @@
+name: "Siam Ashraful"
+location: "Halifax, Nova Scotia"
+summary: "CS graduate; data analysis & UI/UX. Lineage, metadata, and AI-accelerated workflows."
+
+experience:
+  - title: "Data Analyst, Data Traceability & Controls"
+    company: "RBC (via Apex Systems)"
+    location: "Halifax, NS"
+    start: "2025"
+    end:
+    points:
+      - "Documented Critical Data Elements (CDEs) and prepared risk mapping artifacts."
+      - "Built lineage diagrams in Visio; collaborated with Metadata teams to upload lineage into Collibra."
+      - "Improved documentation quality and consistency across reporting → origination flows."
+
+  - title: "AI Evaluation Specialist"
+    company: "Outlier AI"
+    location: "Remote"
+    start: "2024"
+    end: "2025"
+    points:
+      - "Evaluated AI outputs with rubric-based scoring; wrote clear rationales for judgments."
+      - "Iterated prompts to improve reliability and reduce ambiguity."
+
+  - title: "Technical Support Associate"
+    company: "TSX Trust (NTT Data)"
+    location: "Halifax, NS"
+    start: "2024"
+    end: "2025"
+    points:
+      - "Maintained and updated shareholder records using CARES (CRM), ensuring data integrity."
+      - "Resolved stakeholder issues efficiently; documented SOPs for recurring requests."
+
+projects:
+  - name: "Library Seat Reservation UI (Unity)"
+    summary: "Live seat management with mobile reservations and real-time display."
+    stack: ["Unity", "C#"]
+  - name: "Android Buy/Sell Platform"
+    summary: "GPS listings, Firebase auth, card verification algorithm, modern UI."
+    stack: ["Android", "Firebase", "Java"]
+
+education:
+  - degree: "BSc in Computer Science (CGPA ~3.4/4.3)"
+    school: "Dalhousie University"
+    location: "Halifax, NS"
+    year: "2024"
+
+skills:
+  languages: ["Python", "Java", "C", "SQL", "HTML", "CSS", "JavaScript"]
+  data: ["Collibra", "Visio", "MySQL Workbench", "Excel"]
+  design: ["Figma", "Accessibility", "Prototyping"]

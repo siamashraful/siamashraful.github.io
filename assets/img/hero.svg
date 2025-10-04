@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">Data systems landscape</title>
+  <desc id="hero-desc">Gradient canvas with layered waves and orbiting nodes illustrating connected data systems.</desc>
+  <defs>
+    <linearGradient id="hero-bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#312e81" />
+    </linearGradient>
+    <linearGradient id="hero-wave" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="rgba(59,130,246,0.9)" />
+      <stop offset="100%" stop-color="rgba(14,165,233,0.2)" />
+    </linearGradient>
+    <linearGradient id="hero-crest" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)" />
+      <stop offset="100%" stop-color="rgba(148,163,184,0.05)" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" rx="56" fill="url(#hero-bg)" />
+  <path d="M-40 420 C140 340 300 260 520 300 C740 340 820 440 1040 420 C1260 400 1340 300 1440 340 L1440 720 L-40 720 Z" fill="url(#hero-wave)" />
+  <path d="M-60 360 C160 260 360 200 580 240 C800 280 900 360 1100 340 C1300 320 1380 220 1500 260" fill="none" stroke="url(#hero-crest)" stroke-width="10" stroke-linecap="round" />
+  <g fill="#f8fafc" opacity="0.85">
+    <circle cx="280" cy="240" r="18" />
+    <circle cx="560" cy="180" r="14" />
+    <circle cx="780" cy="260" r="20" />
+    <circle cx="1020" cy="210" r="16" />
+    <circle cx="1180" cy="320" r="12" />
+  </g>
+</svg>

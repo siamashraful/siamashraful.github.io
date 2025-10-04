@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="avatar-title avatar-desc">
+  <title id="avatar-title">Minimal avatar for Siam Ashraful</title>
+  <desc id="avatar-desc">Rounded gradient square with stylized SA initials.</desc>
+  <defs>
+    <linearGradient id="avatar-bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="224" height="224" rx="48" fill="url(#avatar-bg)" />
+  <path d="M72 162 L96 82 H116 L96 162 Z" fill="#e0f2fe" />
+  <path d="M132 82 H164 C188 82 204 98 204 120 C204 142 188 158 164 158 H144 L144 178 H124 V82 Z M164 138 C172 138 180 132 180 120 C180 108 172 102 164 102 H144 V138 Z" fill="#bae6fd" />
+</svg>
