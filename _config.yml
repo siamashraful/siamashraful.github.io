@@ -1,2 +1,62 @@
-theme: minima
+title: "Siam Ashraful · Data & Design"
+tagline: "Data lineage, metadata, and human-centered systems"
+description: "Exploring data traceability, UI/UX, and AI-accelerated workflows."
+url: "https://<USERNAME>.github.io"
+baseurl: ""
+lang: en-CA
+timezone: America/Halifax
+author:
+  name: "Siam Ashraful"
+  email: "siamashraful@gmail.com"
+  location: "Halifax, Nova Scotia"
+  pronouns: "he/him"
+  social:
+    linkedin: "https://www.linkedin.com/in/siam-ashraful/"
+    github: "https://github.com/<USERNAME>"
+    rss: "/feed.xml"
+
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+collections:
+  posts:
+    output: true
+
+paginate: 8
+paginate_path: "/blog/page:num/"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author_profile: false
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
 logo: /assets/img/avatar.svg
+
+sass:
+  style: compressed
+
+analytics:
+  ga4_id: ""
+
+footer:
+  links:
+    - label: LinkedIn
+      url: "https://www.linkedin.com/in/siam-ashraful/"
+    - label: GitHub
+      url: "https://github.com/<USERNAME>"
