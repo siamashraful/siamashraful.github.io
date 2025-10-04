@@ -13,12 +13,10 @@ author:
   social:
     linkedin: "https://www.linkedin.com/in/siam-ashraful/"
     github: "https://github.com/siamashraful"
-    rss: "/feed.xml"
 
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 

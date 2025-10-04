@@ -4,10 +4,10 @@ Modern personal site and blog for Siam Ashraful using GitHub Pages + Jekyll.
 
 ## Features
 - Responsive layouts with prefers-color-scheme dark mode toggle
-- Resume powered by `_data/resume.yml`
+- Résumé page with downloadable PDF
 - Projects, blog, contact, and about pages
 - Lunr-powered client-side search and JSON index
-- Built-in SEO tags, sitemap, and RSS feed via GitHub Pages plugins
+- Built-in SEO tags and sitemap via GitHub Pages plugins
 
 ## Quick start
 1. Install Ruby (>= 3.1 recommended) and Bundler.
@@ -23,7 +23,7 @@ Modern personal site and blog for Siam Ashraful using GitHub Pages + Jekyll.
 
 ## Customization checklist
 - Update `_config.yml` with your GitHub username and any analytics IDs.
-- Edit `_data/resume.yml` to modify resume content.
+- Update `resume.md` and the PDF in `assets/resume/` to modify résumé content.
 - Add new posts in `_posts/` using the `YYYY-MM-DD-title.md` naming pattern.
 - Replace placeholder images in `assets/img/` with your own optimized `.webp` files.
 
