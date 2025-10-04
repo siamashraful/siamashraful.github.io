@@ -4,10 +4,13 @@
   </div>
   <nav class="site-nav" aria-label="Primary">
     <a href="{{ '/' | relative_url }}">Home</a>
-    <a href="{{ '/resume/' | relative_url }}">Profile</a>
+    <a href="{{ '/profile/' | relative_url }}">Profile</a>
     <a href="{{ '/projects/' | relative_url }}">Projects</a>
     <a href="{{ '/blog/' | relative_url }}">Blog</a>
     <a href="{{ '/contact/' | relative_url }}">Contact</a>
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+    <button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+      <span data-theme-icon aria-hidden="true">🌙</span>
+      <span class="sr-only">Toggle theme</span>
+    </button>
   </nav>
 </header>
