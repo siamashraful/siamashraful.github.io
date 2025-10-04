@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="avatar-title avatar-desc">
+  <title id="avatar-title">Siam Ashraful monogram</title>
+  <desc id="avatar-desc">Circle with initials S A representing Siam Ashraful.</desc>
+  <defs>
+    <linearGradient id="avatar-gradient" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="124" fill="url(#avatar-gradient)" />
+  <text x="50%" y="55%" text-anchor="middle" font-family="'Nunito', system-ui, sans-serif" font-size="96" fill="#38bdf8" font-weight="700" letter-spacing="6">SA</text>
+  <text x="50%" y="72%" text-anchor="middle" font-family="'Nunito', system-ui, sans-serif" font-size="28" fill="#e2e8f0" letter-spacing="3">DATA &amp; DESIGN</text>
+</svg>

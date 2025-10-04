@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract data-inspired illustration</title>
+  <desc id="desc">Gradient background with flowing lines and nodes representing connected data points.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+    <linearGradient id="wave" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.65)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.1)" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)" rx="48" />
+  <path d="M-50,420 C120,360 220,260 400,280 C580,300 640,420 820,400 C1000,380 1050,300 1250,340 L1250,650 L-50,650 Z" fill="url(#wave)" />
+  <path d="M-30,340 C140,260 280,200 420,240 C560,280 660,380 820,360 C980,340 1080,240 1230,280" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="6" stroke-linecap="round" />
+  <g fill="#fff">
+    <circle cx="220" cy="250" r="18" opacity="0.9" />
+    <circle cx="520" cy="180" r="12" opacity="0.75" />
+    <circle cx="760" cy="260" r="14" opacity="0.8" />
+    <circle cx="980" cy="200" r="10" opacity="0.7" />
+  </g>
+</svg>

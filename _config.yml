@@ -1,1 +1,49 @@
-theme: minima
+title: "Siam Ashraful"
+description: "Data Analyst & UI/UX—Blog, projects, and résumé"
+url: "https://<USERNAME>.github.io"
+baseurl: ""
+author:
+  name: "Siam Ashraful"
+  email: "siamashraful@gmail.com"
+  location: "Halifax, Nova Scotia"
+  social:
+    linkedin: "https://www.linkedin.com/in/siam-ashraful/"
+    github: "https://github.com/<USERNAME>"
+    rss: "/feed.xml"
+
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+collections:
+  posts:
+    output: true
+
+paginate: 8
+paginate_path: "/blog/page:num/"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author_profile: false
+
+include: ["_pages"]
+exclude: ["Gemfile", "Gemfile.lock", "node_modules", "README.md"]
+
+logo: /assets/img/avatar.svg
+
+sass:
+  style: compressed
+
+analytics:
+  ga4_id: ""
