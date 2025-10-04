@@ -1,7 +1,7 @@
 title: "Siam Ashraful · Data & Design"
 tagline: "Data lineage, metadata, and human-centered systems"
 description: "Exploring data traceability, UI/UX, and AI-accelerated workflows."
-url: "https://<USERNAME>.github.io"
+url: "https://siamashraful.github.io"
 baseurl: ""
 lang: en-CA
 timezone: America/Halifax
@@ -12,7 +12,7 @@ author:
   pronouns: "he/him"
   social:
     linkedin: "https://www.linkedin.com/in/siam-ashraful/"
-    github: "https://github.com/<USERNAME>"
+    github: "https://github.com/siamashraful"
     rss: "/feed.xml"
 
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
@@ -29,9 +29,6 @@ permalink: /:categories/:year/:month/:day/:title/
 collections:
   posts:
     output: true
-
-paginate: 8
-paginate_path: "/blog/page:num/"
 
 defaults:
   - scope:
@@ -59,4 +56,4 @@ footer:
     - label: LinkedIn
       url: "https://www.linkedin.com/in/siam-ashraful/"
     - label: GitHub
-      url: "https://github.com/<USERNAME>"
+      url: "https://github.com/siamashraful"

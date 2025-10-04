@@ -1,4 +1,7 @@
+---
+---
 (function () {
+  const searchUrl = "{{ '/search.json' | relative_url }}";
   const input = document.getElementById('search-input');
   const resultsList = document.getElementById('search-results');
   const postList = document.getElementById('post-list');
@@ -43,7 +46,7 @@
   async function ensureIndex() {
     if (index || !window.lunr) return;
     try {
-      const response = await fetch('/search.json');
+      const response = await fetch(searchUrl);
       if (!response.ok) return;
       documents = await response.json();
       index = window.lunr(function () {
