@@ -1,6 +1,9 @@
 ---
 title: Welcome to my blog
+hero_image: /assets/img/hero.svg
 ---
+
+<img src="{{ page.hero_image | relative_url }}" alt="Abstract gradient illustration with the words Imagine. Build. Iterate." width="100%" style="max-width: 720px; display: block; margin: 0 auto 2rem; border-radius: 24px;" />
 
 # About Me
 
