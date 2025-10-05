@@ -42,8 +42,10 @@
 </head>
 <body>
   {% include header.html %}
-  <main class="container" id="content" tabindex="-1">
-    {{ content }}
+  <main id="content" tabindex="-1">
+    <div class="container">
+      {{ content }}
+    </div>
   </main>
   {% include footer.html %}
   <script>
@@ -60,6 +62,11 @@
         icon.setAttribute('aria-hidden', 'true');
         toggle.appendChild(icon);
       }
+
+      var iconMarkup = {
+        sun: '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="currentColor"></circle><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></g></svg>',
+        moon: '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 12.79A9 9 0 0111.21 3a7 7 0 109.79 9.79z"></path></svg>'
+      };
 
       function prefersDark() {
         return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -100,7 +107,7 @@
       function updateToggle(theme) {
         var isDark = theme === 'dark';
         var next = isDark ? 'light' : 'dark';
-        icon.textContent = isDark ? '🌞' : '🌙';
+        icon.innerHTML = isDark ? iconMarkup.sun : iconMarkup.moon;
         toggle.setAttribute('aria-pressed', String(isDark));
         toggle.setAttribute('aria-label', 'Switch to ' + next + ' mode');
         toggle.setAttribute('title', 'Switch to ' + next + ' mode');

@@ -1,14 +1,21 @@
+{% assign current_url = page.url | default: '/' %}
+{% assign is_post = page.layout == 'post' %}
 <header class="site-header" role="banner">
   <div class="branding">
     <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
   </div>
-  <nav class="site-nav" aria-label="Primary">
-    <a href="{{ '/' | relative_url }}">Home</a>
-    <a href="{{ '/profile/' | relative_url }}">Profile</a>
-    <a href="{{ '/projects/' | relative_url }}">Projects</a>
-    <a href="{{ '/blog/' | relative_url }}">Blog</a>
-    <a href="{{ '/contact/' | relative_url }}">Contact</a>
-    <button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+  <nav class="site-nav nav" aria-label="Primary">
+    {% assign home_active = current_url == '/' %}
+    <a href="{{ '/' | relative_url }}"{% if home_active %} class="active" aria-current="page"{% endif %}>Home</a>
+    {% assign profile_active = current_url == '/profile/' %}
+    <a href="{{ '/profile/' | relative_url }}"{% if profile_active %} class="active" aria-current="page"{% endif %}>Profile</a>
+    {% assign projects_active = current_url == '/projects/' %}
+    <a href="{{ '/projects/' | relative_url }}"{% if projects_active %} class="active" aria-current="page"{% endif %}>Projects</a>
+    {% assign blog_active = current_url == '/blog/' or is_post %}
+    <a href="{{ '/blog/' | relative_url }}"{% if blog_active %} class="active" aria-current="page"{% endif %}>Blog</a>
+    {% assign contact_active = current_url == '/contact/' %}
+    <a href="{{ '/contact/' | relative_url }}"{% if contact_active %} class="active" aria-current="page"{% endif %}>Contact</a>
+    <button id="theme-toggle" class="btn btn-ghost theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
       <span data-theme-icon aria-hidden="true">🌙</span>
       <span class="sr-only">Toggle theme</span>
     </button>
