@@ -1,44 +1,48 @@
 ---
 layout: page
-title: "Résumé"
-permalink: /resume/
-description: "Résumé of Siam Ashraful"
+title: "Profile"
+permalink: /profile/
+description: "High-level resume snapshot for Siam Ashraful"
 ---
 
-# Siam M. Ashraful — Résumé
+<div class="resume-glass">
+  <h1>Resume</h1>
+  <p><strong>Siam Ashraful</strong> — Computer Science graduate based in Halifax, NS. Data Analyst at RBC (Data Traceability &amp; Controls) focused on documenting data lineage, stewarding metadata quality, and preparing teams for audits across critical banking platforms.</p>
 
-- Email: [siamashraful@gmail.com](mailto:siamashraful@gmail.com)  
-- GitHub: [@siamashraful](https://github.com/siamashraful)  
-- LinkedIn: [/in/siam-ashraful/](https://www.linkedin.com/in/siam-ashraful/)  
-- [Download PDF](/assets/resume/resume.pdf)
+  <h2>Core Strengths</h2>
+  <ul>
+    <li>Data lineage mapping, metadata stewardship, and regulatory-ready documentation.</li>
+    <li>Risk control coordination, audit readiness support, and stakeholder alignment.</li>
+    <li>SQL, scripting, debugging complex pipelines, and visualizing flows with Visio.</li>
+    <li>Human-centered approach informed by technical support and AI evaluation experience.</li>
+  </ul>
 
-## Summary
-Experienced data product designer and engineer focused on building trustworthy metadata systems, intuitive workflows, and user-centered tooling for data teams.
+  <h2>Experience</h2>
+  <ul>
+    <li>
+      <strong>Data Analyst — RBC (via Apex Systems)</strong><br>
+      Capture critical data elements, trace lineage across platforms, and collaborate with metadata owners to strengthen compliance deliverables for the Data Office.
+    </li>
+    <li>
+      <strong>Technical Support Associate — TSX Trust (NTT Data)</strong><br>
+      Resolved complex client cases, triaged issues with engineering teams, and ensured timely communication across stakeholders.
+    </li>
+    <li>
+      <strong>AI Writing Evaluator — Outlier AI</strong><br>
+      Assessed large language model responses, documenting quality insights that informed product improvements.
+    </li>
+  </ul>
 
-## Experience
-### Senior Data Product Designer — MetadataFlow (Remote)
-*2022–Present*
-- Led end-to-end design of lineage visualization dashboards powering compliance reviews across 200+ data assets.
-- Collaborated with engineers to prototype schema change alerts that reduced incident response time by 30%.
-- Facilitated stakeholder workshops and usability tests to align product roadmap with analyst needs.
+  <h2>Education</h2>
+  <p><strong>BSc, Computer Science — Dalhousie University</strong></p>
 
-### Data Engineer — Atlantic Analytics, Halifax, NS
-*2019–2022*
-- Built ETL pipelines and monitoring to centralize multi-source operational data into a governed warehouse.
-- Automated data quality profiling and anomaly detection, cutting manual validation hours by 40%.
-- Partnered with design and product teams to ship self-service reporting features for internal customers.
+  <h2>Selected Projects</h2>
+  <ul>
+    <li><strong>Library Seat Reservation (Unity):</strong> Built a real-time visualization and mobile reservation workflow for campus library seating.</li>
+    <li><strong>Android Buy/Sell App (Firebase):</strong> Implemented authentication, GPS-aware listings, and payment validation for student marketplace transactions.</li>
+  </ul>
 
-## Selected Projects
-- **Open Metadata Toolkit** — Open-source utilities for catalog synchronization and governance automation.
-- **Ethical AI Audit Playbook** — Framework for assessing AI lifecycle risks and aligning stakeholders on mitigations.
-- **Design Ops Metrics Dashboard** — Interactive dashboards tracking UX research impact across product squads.
+  <a class="btn-resume" href="/assets/resume/resume.pdf" download aria-label="Download Siam Ashraful's resume as PDF">Download PDF</a>
 
-## Education
-- **BSc, Computer Science**, Dalhousie University — Halifax, NS (2019)
-
-## Skills
-- **Languages:** Python, SQL, TypeScript
-- **Data & Platforms:** dbt, Apache Airflow, Fivetran, Looker
-- **Design:** Figma, FigJam, Inclusive Research Methods
-
-_Last updated {{ "now" | date: "%B %Y" }}._
+  <p class="last-updated">Last updated: {{ site.time | date: "%B %Y" }}</p>
+</div>

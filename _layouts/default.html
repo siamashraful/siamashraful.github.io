@@ -41,12 +41,94 @@
   {% include head/custom.html %}
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
   {% include header.html %}
-  <main class="container" id="content" tabindex="-1">
-    {{ content }}
+  <main id="content" tabindex="-1">
+    <div class="container">
+      {{ content }}
+    </div>
   </main>
   {% include footer.html %}
-  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
+  <script>
+    (function () {
+      var storageKey = 'theme';
+      var root = document.documentElement;
+      var toggle = document.querySelector('#theme-toggle, .theme-toggle, [data-theme-toggle], .toggle-dark, .mode-toggle');
+      if (!toggle) return;
+
+      var icon = toggle.querySelector('[data-theme-icon]');
+      if (!icon) {
+        icon = document.createElement('span');
+        icon.setAttribute('data-theme-icon', '');
+        icon.setAttribute('aria-hidden', 'true');
+        toggle.appendChild(icon);
+      }
+
+      var iconMarkup = {
+        sun: '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="currentColor"></circle><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></g></svg>',
+        moon: '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 12.79A9 9 0 0111.21 3a7 7 0 109.79 9.79z"></path></svg>'
+      };
+
+      function prefersDark() {
+        return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+
+      function safeGet() {
+        try {
+          var stored = localStorage.getItem(storageKey);
+          if (stored === 'dark' || stored === 'light') {
+            return stored;
+          }
+        } catch (err) {
+          /* localStorage unavailable */
+        }
+        return null;
+      }
+
+      function safeSet(value) {
+        try {
+          localStorage.setItem(storageKey, value);
+        } catch (err) {
+          /* localStorage unavailable */
+        }
+      }
+
+      function currentTheme() {
+        var attr = root.getAttribute('data-theme');
+        if (attr === 'dark' || attr === 'light') {
+          return attr;
+        }
+        var stored = safeGet();
+        if (stored) {
+          return stored;
+        }
+        return prefersDark() ? 'dark' : 'light';
+      }
+
+      function updateToggle(theme) {
+        var isDark = theme === 'dark';
+        var next = isDark ? 'light' : 'dark';
+        icon.innerHTML = isDark ? iconMarkup.sun : iconMarkup.moon;
+        toggle.setAttribute('aria-pressed', String(isDark));
+        toggle.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+        toggle.setAttribute('title', 'Switch to ' + next + ' mode');
+      }
+
+      function applyTheme(theme, persist) {
+        var mode = theme === 'dark' ? 'dark' : 'light';
+        root.setAttribute('data-theme', mode);
+        updateToggle(mode);
+        if (persist) {
+          safeSet(mode);
+        }
+      }
+
+      applyTheme(currentTheme(), false);
+
+      toggle.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next, true);
+      });
+    })();
+  </script>
 </body>
 </html>
