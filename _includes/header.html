@@ -16,7 +16,7 @@
     {% assign contact_active = current_url == '/contact/' %}
     <a href="{{ '/contact/' | relative_url }}"{% if contact_active %} class="active" aria-current="page"{% endif %}>Contact</a>
     <button id="theme-toggle" class="btn btn-ghost theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-      <span data-theme-icon aria-hidden="true">🌙</span>
+      <span data-theme-icon aria-hidden="true"><svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 12.79A9 9 0 0111.21 3a7 7 0 109.79 9.79z"></path></svg></span>
       <span class="sr-only">Toggle theme</span>
     </button>
   </nav>
