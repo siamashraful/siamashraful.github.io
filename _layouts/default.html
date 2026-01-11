@@ -41,13 +41,22 @@
   {% include head/custom.html %}
 </head>
 <body>
-  {% include header.html %}
-  <main id="content" tabindex="-1">
-    <div class="container">
-      {{ content }}
-    </div>
-  </main>
-  {% include footer.html %}
+  <div class="site-background" aria-hidden="true">
+    <span class="bg-orb orb-one"></span>
+    <span class="bg-orb orb-two"></span>
+    <span class="bg-orb orb-three"></span>
+    <span class="bg-grid"></span>
+    <span class="bg-scanline"></span>
+  </div>
+  <div class="page-shell">
+    {% include header.html %}
+    <main id="content" tabindex="-1">
+      <div class="container">
+        {{ content }}
+      </div>
+    </main>
+    {% include footer.html %}
+  </div>
   <script>
     (function () {
       var storageKey = 'theme';
