@@ -31,3 +31,7 @@ Modern personal site and blog for Siam Ashraful using GitHub Pages + Jekyll.
 Push changes to the default branch (usually `main`). GitHub Pages will build the site automatically—no additional CI is required.
 
 For custom domains, add a `CNAME` file with your domain and configure DNS records.
+
+## Planned overhaul
+
+The discovery audit, phased delivery plan, content model proposal, and owner questionnaire for the next major redesign are documented in [`docs/website-overhaul-plan.md`](docs/website-overhaul-plan.md). The plan intentionally requires factual, audience, privacy, and design decisions before broad implementation begins.
