@@ -2,7 +2,7 @@
 layout: page
 title: About
 eyebrow: "About — The long position"
-heading: "Numbers have origins. I go find them."
+heading: "Skeptic by training. Optimist by thesis."
 permalink: /about/
 description: "Who I am, how I got here, and why I think the next decade runs through digital intelligence."
 ---
