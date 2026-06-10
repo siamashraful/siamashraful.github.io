@@ -1,6 +1,6 @@
-title: "Siam Ashraful · Data & Design"
-tagline: "Data lineage, metadata, and human-centered systems"
-description: "Exploring data traceability, UI/UX, and AI-accelerated workflows."
+title: "Siam Ashraful"
+tagline: "Investment & Data Analyst"
+description: "Investment and data analytics — capital markets, data lineage, and the systems behind both. Halifax, Nova Scotia."
 url: "https://siamashraful.github.io"
 baseurl: ""
 lang: en-CA
@@ -14,11 +14,18 @@ author:
     linkedin: "https://www.linkedin.com/in/siam-ashraful/"
     github: "https://github.com/siamashraful"
 
-remote_theme: "mmistakes/minimal-mistakes@4.26.2"
-
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+
+exclude:
+  - CLAUDE.md
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - docs/
+  - vendor/
 
 markdown: kramdown
 highlighter: rouge
@@ -34,7 +41,6 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author_profile: false
   - scope:
       path: ""
       type: "pages"
