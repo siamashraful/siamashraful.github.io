@@ -1,0 +1,160 @@
+// Type system: editorial serif for display, sans for UI/body,
+// mono with tabular numerals wherever data appears.
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.mono,
+time,
+.numeric {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+// Small uppercase mono label — section eyebrows, tickers, metadata.
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+
+  &::before {
+    content: "";
+    width: 2em;
+    height: 1px;
+    background: var(--up);
+  }
+}
+
+.lead {
+  font-size: var(--text-lead);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+// Long-form prose (Notes posts, about page body).
+.prose {
+  max-width: var(--container-prose);
+
+  > * + * {
+    margin-top: 1.1em;
+  }
+
+  h2 {
+    font-size: var(--text-title);
+    margin-top: 2.2em;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-top: 1.8em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: var(--hairline-strong);
+
+    &:hover {
+      text-decoration-color: var(--up);
+    }
+  }
+
+  blockquote {
+    border-left: 2px solid var(--up);
+    padding-left: 1.25em;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.4em;
+
+    li + li {
+      margin-top: 0.4em;
+    }
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--hairline);
+    margin: 2.5em 0;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--bg-elev);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    padding: 0.1em 0.4em;
+  }
+
+  pre {
+    background: var(--bg-elev);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    padding: 1.1em 1.3em;
+    overflow-x: auto;
+    font-size: var(--text-small);
+    line-height: 1.6;
+
+    code {
+      background: none;
+      border: 0;
+      padding: 0;
+      font-size: inherit;
+    }
+  }
+
+  img {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: var(--text-small);
+
+    th,
+    td {
+      border: 1px solid var(--hairline);
+      padding: 0.5em 0.9em;
+      text-align: left;
+    }
+
+    th {
+      font-family: var(--font-mono);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+  }
+}

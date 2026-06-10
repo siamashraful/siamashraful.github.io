@@ -1,0 +1,97 @@
+// Design tokens — "capital-markets terminal meets editorial".
+// Dark is the canonical theme; light is the "printed research note".
+// Light values live in a mixin so the explicit [data-theme="light"]
+// selector and the prefers-color-scheme fallback can't drift apart.
+
+@mixin light-tokens {
+  color-scheme: light;
+  --bg: #faf9f7;
+  --bg-elev: #ffffff;
+  --bg-card: #ffffff;
+  --fg: #14181f;
+  --muted: #5a6473;
+  --faint: #8a93a3;
+  --hairline: rgba(20, 28, 42, 0.12);
+  --hairline-strong: rgba(20, 28, 42, 0.28);
+  --grid-line: rgba(20, 28, 42, 0.045);
+  --up: #0a7d4f;
+  --up-bright: #0e9962;
+  --up-soft: rgba(10, 125, 79, 0.09);
+  --down: #b3362a;
+  --gold: #8a6d1f;
+  --gold-soft: rgba(138, 109, 31, 0.1);
+  --link: #0a7d4f;
+  --shadow-1: 0 1px 2px rgba(20, 28, 42, 0.06), 0 4px 16px rgba(20, 28, 42, 0.06);
+  --shadow-2: 0 2px 6px rgba(20, 28, 42, 0.08), 0 16px 40px rgba(20, 28, 42, 0.1);
+  --glare: rgba(255, 255, 255, 0.75);
+  --scrim: rgba(250, 249, 247, 0.82);
+}
+
+:root {
+  color-scheme: dark;
+
+  // ---- color: terminal dark ----
+  --bg: #0a0c10;
+  --bg-elev: #10141b;
+  --bg-card: #0d1117;
+  --fg: #e8ecf3;
+  --muted: #97a1b3;
+  --faint: #5d6678;
+  --hairline: rgba(168, 190, 226, 0.14);
+  --hairline-strong: rgba(168, 190, 226, 0.3);
+  --grid-line: rgba(168, 190, 226, 0.05);
+  --up: #2be08f;
+  --up-bright: #4cf2a7;
+  --up-soft: rgba(43, 224, 143, 0.1);
+  --down: #ff6262;
+  --gold: #e3c06a;
+  --gold-soft: rgba(227, 192, 106, 0.12);
+  --link: #2be08f;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5);
+  --glare: rgba(190, 215, 255, 0.08);
+  --scrim: rgba(10, 12, 16, 0.78);
+
+  // ---- type ----
+  --font-serif: ui-serif, "Iowan Old Style", "Palatino", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --text-hero: clamp(3rem, 9vw, 6.5rem);
+  --text-display: clamp(2.1rem, 5vw, 3.4rem);
+  --text-title: clamp(1.5rem, 3vw, 2.1rem);
+  --text-lead: clamp(1.05rem, 1.6vw, 1.25rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-micro: 0.75rem;
+
+  // ---- layout ----
+  --container: 1140px;
+  --container-prose: 68ch;
+  --header-h: 60px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  // ---- motion ----
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.4, 1);
+  --dur-1: 160ms;
+  --dur-2: 320ms;
+  --dur-3: 640ms;
+  --dur-4: 1100ms;
+
+  // ---- z ----
+  --z-header: 100;
+  --z-skip: 200;
+}
+
+:root[data-theme="light"] {
+  @include light-tokens;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    @include light-tokens;
+  }
+}

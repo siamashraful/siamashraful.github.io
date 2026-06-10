@@ -1,0 +1,96 @@
+// All keyframes, scroll-reveal states, and View Transition styling.
+// Contract: pre-animation "hidden" states only ever apply under
+// html.motion-ok (set inline in <head> when JS runs AND the user has
+// not requested reduced motion) — no-JS and reduced-motion visitors
+// always get the finished, static page.
+
+// ---- scroll reveals -------------------------------------------------
+html.motion-ok [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 80ms);
+  will-change: opacity, transform;
+}
+
+html.motion-ok [data-reveal="left"] {
+  transform: translateX(-32px);
+}
+
+html.motion-ok [data-reveal="scale"] {
+  transform: scale(0.94) translateY(12px);
+}
+
+html.motion-ok [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+// ---- keyframes ------------------------------------------------------
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes node-ignite {
+  0% { box-shadow: 0 0 0 0 var(--up-soft); }
+  60% { box-shadow: 0 0 0 14px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+// ---- view transitions ------------------------------------------------
+// Cross-document fade between pages (progressive: Chromium/Safari only).
+@media not all and (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation-duration: 200ms;
+  }
+
+  ::view-transition-new(root) {
+    animation-duration: 280ms;
+  }
+}
+
+// Same-document theme swap: JS animates a clip-path circle on the new
+// snapshot; default crossfade is disabled so the reveal reads cleanly.
+html.theme-transition::view-transition-old(root),
+html.theme-transition::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+// ---- reduced motion: one consolidated kill-switch -------------------
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

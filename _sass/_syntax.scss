@@ -1,0 +1,15 @@
+// Rouge syntax highlighting, keyed to the token palette so it adapts
+// to both themes. Intentionally restrained: data-terminal greens/golds.
+
+.highlight {
+  .c, .cm, .c1, .cs { color: var(--faint); font-style: italic; } // comments
+  .k, .kd, .kn, .kp, .kr, .kt { color: var(--up); }              // keywords
+  .s, .s1, .s2, .sb, .sh { color: var(--gold); }                 // strings
+  .m, .mi, .mf, .mh { color: var(--up-bright); }                 // numbers
+  .na, .nf, .nx { color: var(--fg); }
+  .nb, .bp { color: var(--muted); }
+  .o, .ow { color: var(--muted); }
+  .err { color: var(--down); }
+  .gd { color: var(--down); }
+  .gi { color: var(--up); }
+}
