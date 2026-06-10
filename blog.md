@@ -1,25 +1,23 @@
 ---
 layout: page
-title: Blog
+title: Notes
+eyebrow: "Notes — Working in public"
+heading: "Working notes on markets, data, and building things"
 permalink: /blog/
-description: "Blog posts and notes by Siam Ashraful"
+description: "Freeform writing. The structured research lives in the coverage section."
 ---
 
-<div class="blog-controls">
-  <label class="search-label" for="search-input">Search posts</label>
+<div class="search" role="search">
+  <label class="sr-only" for="search-input">Search notes</label>
   {% include search.html %}
 </div>
 
 <ul id="post-list" class="post-list" data-page-size="8">
   {% for post in site.posts %}
-  <li class="post-list-item" data-title="{{ post.title | escape }}" data-date="{{ post.date | date: '%Y-%m-%d' }}">
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <small>{{ post.date | date: "%b %d, %Y" }}</small>
-    <p>{{ post.description | default: post.excerpt | strip_html | truncate: 160 }}</p>
-  </li>
+  {% include post-card.html post=post index=forloop.index0 %}
   {% endfor %}
 </ul>
 
-<nav class="pagination" aria-label="Blog pagination">
-  <button id="load-more" type="button">Load more</button>
+<nav class="pagination" aria-label="Notes pagination">
+  <button id="load-more" class="btn btn--ghost btn--small" type="button">Load more</button>
 </nav>

@@ -1,0 +1,12 @@
+{% comment %}
+  Params: eyebrow, title, more_label, more_url
+{% endcomment %}
+<div class="section-heading" data-reveal>
+  <span class="eyebrow">{{ include.eyebrow }}</span>
+  <div class="section-heading__row">
+    <h2>{{ include.title }}</h2>
+    {% if include.more_url %}
+    <a class="section-heading__more" href="{{ include.more_url | relative_url }}">{{ include.more_label | default: "View all" }} →</a>
+    {% endif %}
+  </div>
+</div>

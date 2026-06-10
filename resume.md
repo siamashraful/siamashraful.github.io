@@ -1,48 +1,66 @@
 ---
 layout: page
-title: "Profile"
+title: Experience
+eyebrow: "Experience — Career ledger"
+heading: "The record so far"
 permalink: /profile/
-description: "High-level resume snapshot for Siam Ashraful"
+description: "Roles, education, and skills — rendered from one source of truth."
 ---
 
-<div class="resume-glass">
-  <h1>Resume</h1>
-  <p><strong>Siam Ashraful</strong> — Computer Science graduate based in Halifax, NS. Data Analyst at RBC (Data Traceability &amp; Controls) focused on documenting data lineage, stewarding metadata quality, and preparing teams for audits across critical banking platforms.</p>
+<div class="resume">
+  <div class="resume__actions">
+    <a class="btn" data-magnetic href="{{ '/assets/resume/resume.pdf' | relative_url }}" download>Download résumé (PDF)</a>
+    <span class="mono text-muted">Verified {{ site.data.resume.updated }}</span>
+  </div>
 
-  <h2>Core Strengths</h2>
-  <ul>
-    <li>Data lineage mapping, metadata stewardship, and regulatory-ready documentation.</li>
-    <li>Risk control coordination, audit readiness support, and stakeholder alignment.</li>
-    <li>SQL, scripting, debugging complex pipelines, and visualizing flows with Visio.</li>
-    <li>Human-centered approach informed by technical support and AI evaluation experience.</li>
-  </ul>
+  <section class="resume__section" aria-label="Core strengths">
+    <h2 class="resume__heading eyebrow">Core strengths</h2>
+    <ul class="resume__strengths">
+      {% for strength in site.data.resume.strengths %}
+      <li data-reveal style="--reveal-i: {{ forloop.index0 }};">{{ strength }}</li>
+      {% endfor %}
+    </ul>
+  </section>
 
-  <h2>Experience</h2>
-  <ul>
-    <li>
-      <strong>Data Analyst — RBC (via Apex Systems)</strong><br>
-      Capture critical data elements, trace lineage across platforms, and collaborate with metadata owners to strengthen compliance deliverables for the Data Office.
-    </li>
-    <li>
-      <strong>Technical Support Associate — TSX Trust (NTT Data)</strong><br>
-      Resolved complex client cases, triaged issues with engineering teams, and ensured timely communication across stakeholders.
-    </li>
-    <li>
-      <strong>AI Writing Evaluator — Outlier AI</strong><br>
-      Assessed large language model responses, documenting quality insights that informed product improvements.
-    </li>
-  </ul>
+  <section class="resume__section" aria-label="Experience">
+    <h2 class="resume__heading eyebrow">Experience</h2>
+    {% include timeline.html %}
+  </section>
 
-  <h2>Education</h2>
-  <p><strong>BSc, Computer Science — Dalhousie University</strong></p>
+  <section class="resume__section" aria-label="Education">
+    <h2 class="resume__heading eyebrow">Education</h2>
+    {% for edu in site.data.resume.education %}
+    <div class="resume__edu" data-reveal>
+      <div class="timeline__head">
+        <h3>{{ edu.degree }}</h3>
+        <span class="timeline__dates numeric">{{ edu.year }}</span>
+      </div>
+      <span class="timeline__org">{{ edu.school }} · {{ edu.location }}</span>
+      {% if edu.note %}<p class="text-muted">{{ edu.note }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </section>
 
-  <h2>Selected Projects</h2>
-  <ul>
-    <li><strong>Library Seat Reservation (Unity):</strong> Built a real-time visualization and mobile reservation workflow for campus library seating.</li>
-    <li><strong>Android Buy/Sell App (Firebase):</strong> Implemented authentication, GPS-aware listings, and payment validation for student marketplace transactions.</li>
-  </ul>
+  <section class="resume__section" aria-label="Skills">
+    <h2 class="resume__heading eyebrow">Skills</h2>
+    <div class="resume__skills">
+      {% for group in site.data.resume.skills %}
+      <div class="resume__skill-group" data-reveal style="--reveal-i: {{ forloop.index0 }};">
+        <h3 class="mono">{{ group.group }}</h3>
+        <div class="chip-row">
+          {% for item in group.items %}<span class="chip">{{ item }}</span>{% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
 
-  <a class="btn-resume" href="/assets/resume/resume.pdf" download aria-label="Download Siam Ashraful's resume as PDF">Download PDF</a>
-
-  <p class="last-updated">Last updated: {{ site.time | date: "%B %Y" }}</p>
+  <section class="resume__section" aria-label="Selected projects">
+    <h2 class="resume__heading eyebrow">Selected projects</h2>
+    <ul class="resume__strengths">
+      {% for project in site.data.resume.projects %}
+      <li data-reveal style="--reveal-i: {{ forloop.index0 }};"><strong>{{ project.name }}.</strong> {{ project.summary }}</li>
+      {% endfor %}
+    </ul>
+  </section>
 </div>

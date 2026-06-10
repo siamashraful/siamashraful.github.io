@@ -1,0 +1,93 @@
+---
+layout: default
+---
+{% include hero.html %}
+
+{% include ticker.html %}
+
+<section class="section snapshot" aria-label="Snapshot">
+  <div class="container">
+    <div class="snapshot__grid">
+      <div class="snapshot__stat" data-reveal>
+        <span class="snapshot__num numeric" data-countup="2024">2024</span>
+        <span class="snapshot__label">BSc Computer Science, Dalhousie University</span>
+      </div>
+      <div class="snapshot__stat" data-reveal style="--reveal-i: 1;">
+        <span class="snapshot__num numeric" data-countup="3">3</span>
+        <span class="snapshot__label">Roles across banking, markets infrastructure &amp; AI</span>
+      </div>
+      <div class="snapshot__stat" data-reveal style="--reveal-i: 2;">
+        <span class="snapshot__num numeric" data-countup="7">7</span>
+        <span class="snapshot__label">Programming languages</span>
+      </div>
+      <div class="snapshot__stat" data-reveal style="--reveal-i: 3;">
+        <span class="snapshot__num numeric" data-countup="2">2</span>
+        <span class="snapshot__label">Shipped builds</span>
+      </div>
+    </div>
+    <p class="snapshot__line lead" data-reveal style="--reveal-i: 4;">
+      The thread through all of it: I find out where the numbers actually come from.
+      Lineage in a bank, shareholder records at a transfer agent, rubric scores for AI —
+      and next, the numbers behind investments.
+    </p>
+  </div>
+</section>
+
+<section class="section section--hairline coverage" id="coverage" aria-label="Coverage and analysis">
+  <div class="container">
+    {% include section-heading.html eyebrow="Coverage & Analysis" title="Research, in the open" %}
+    <div class="card-grid">
+      {% for card in site.data.coverage %}
+      {% include coverage-card.html card=card index=forloop.index0 %}
+      {% endfor %}
+    </div>
+    <p class="coverage__note mono" data-reveal>— Under construction. Published analysis lands here as it's completed. Nothing on this site is investment advice. —</p>
+  </div>
+</section>
+
+<section class="section section--hairline" aria-label="Experience">
+  <div class="container">
+    {% include section-heading.html eyebrow="Experience" title="Where I've worked" more_label="Full résumé" more_url="/profile/" %}
+    {% include timeline.html %}
+  </div>
+</section>
+
+<section class="section section--hairline" aria-label="Projects">
+  <div class="container">
+    {% include section-heading.html eyebrow="Projects" title="Things I've built" more_label="All projects" more_url="/projects/" %}
+    <div class="card-grid">
+      {% for project in site.data.resume.projects %}
+      <article class="card card--tilt" data-tilt data-reveal="scale" style="--reveal-i: {{ forloop.index0 }};">
+        <div class="card__meta"><span class="numeric">BUILD {{ forloop.index | prepend: '0' | slice: -2, 2 }}</span></div>
+        <h3>{{ project.name }}</h3>
+        <p class="card__body">{{ project.summary }}</p>
+        <div class="chip-row">
+          {% for tech in project.stack %}<span class="chip">{{ tech }}</span>{% endfor %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--hairline" aria-label="Latest notes">
+  <div class="container">
+    {% include section-heading.html eyebrow="Notes" title="Latest writing" more_label="All notes" more_url="/blog/" %}
+    <ul class="post-list">
+      {% for post in site.posts limit: 2 %}
+      {% include post-card.html post=post index=forloop.index0 %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--hairline contact-band" aria-label="Contact">
+  <div class="container contact-band__inner">
+    <p class="eyebrow" data-reveal>Open position</p>
+    <h2 class="contact-band__title" data-reveal style="--reveal-i: 1;">Let's talk markets, data,<br>or both at once.</h2>
+    <div class="hero__cta" data-reveal style="--reveal-i: 2;">
+      <a class="btn" data-magnetic href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+      <a class="btn btn--ghost" data-magnetic href="{{ site.author.social.linkedin }}">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+{% comment %}
+  Experience timeline from _data/resume.yml. timeline.js drives the
+  progress line and node ignition on scroll.
+{% endcomment %}
+<ol class="timeline" data-timeline>
+  <span class="timeline__progress" aria-hidden="true"></span>
+  {% for role in site.data.resume.experience %}
+  <li class="timeline__entry" data-reveal style="--reveal-i: {{ forloop.index0 }};">
+    <div class="timeline__head">
+      <h3>{{ role.title }}</h3>
+      <span class="timeline__dates numeric">{{ role.start }}–{% if role.end %}{{ role.end }}{% else %}NOW{% endif %}</span>
+    </div>
+    <span class="timeline__org">{{ role.company }} · {{ role.location }}</span>
+    <div class="timeline__body">
+      <ul>
+        {% for point in role.points %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </li>
+  {% endfor %}
+</ol>

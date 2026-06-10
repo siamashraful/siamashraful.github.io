@@ -1,0 +1,17 @@
+{% comment %}
+  Editorial article card. Param: post, index.
+  Class/ID contract with search.js: .post-list-item stays.
+{% endcomment %}
+{% assign words = include.post.content | strip_html | number_of_words %}
+<li class="post-list-item" data-reveal style="--reveal-i: {{ include.index | default: 0 }};">
+  <div class="post-card">
+    <div class="post-card__meta mono">
+      <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%b %d, %Y" }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ words | divided_by: 180 | at_least: 1 }} min read</span>
+    </div>
+    <h3 class="post-card__title"><a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
+    <p class="post-card__excerpt">{{ include.post.description | default: include.post.excerpt | strip_html | truncate: 180 }}</p>
+    <span class="post-card__read mono" aria-hidden="true">READ →</span>
+  </div>
+</li>

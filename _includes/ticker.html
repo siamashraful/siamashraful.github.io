@@ -1,0 +1,19 @@
+{% comment %}
+  Skills-as-ticker-symbols marquee. Decorative deltas only — the real
+  skills list lives on /profile/. Second track is a visual duplicate.
+{% endcomment %}
+{% assign ticker_items = "PYTHON;SQL;JAVA;C;JAVASCRIPT;HTML/CSS;EXCEL;COLLIBRA;VISIO;MYSQL;FIGMA;DAL.CS;HFX.NS" | split: ";" %}
+<div class="ticker" aria-label="Toolbox ticker">
+  <div class="ticker__rail">
+    <div class="ticker__track">
+      {% for item in ticker_items %}
+      <span class="ticker__item"><span class="ticker__symbol">{{ item }}</span><span class="ticker__delta" aria-hidden="true">▲</span></span>
+      {% endfor %}
+    </div>
+    <div class="ticker__track ticker__track--dup" aria-hidden="true">
+      {% for item in ticker_items %}
+      <span class="ticker__item"><span class="ticker__symbol">{{ item }}</span><span class="ticker__delta">▲</span></span>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,4 +1,7 @@
-<input id="search-input" type="search" placeholder="Search posts…" aria-label="Search posts">
-<ul id="search-results" aria-live="polite" aria-label="Search results"></ul>
+<div class="search__field">
+  <input id="search-input" type="search" placeholder="search notes…" aria-label="Search notes"
+         data-search-url="{{ '/search.json' | relative_url }}">
+</div>
+<ul id="search-results" aria-live="polite" aria-label="Search results" hidden></ul>
 <script defer src="{{ '/assets/js/lunr.min.js' | relative_url }}"></script>
 <script defer src="{{ '/assets/js/search.js' | relative_url }}"></script>

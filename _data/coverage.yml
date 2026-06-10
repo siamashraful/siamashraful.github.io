@@ -1,0 +1,14 @@
+# Coverage & analysis placeholders. Each card is a reserved slot —
+# replace status/blurb (and add url) as real write-ups are published.
+- symbol: "EQUITY NOTE"
+  status: "In progress"
+  title: "First equity research note"
+  blurb: "A full coverage write-up — thesis, business quality, valuation framing, and risks — is being drafted. It will publish here first."
+- symbol: "SECTOR"
+  status: "Queued"
+  title: "Sector deep-dive"
+  blurb: "A structural look at one sector through the lens I know best: where its data flows, breaks, and hides risk."
+- symbol: "WATCHLIST"
+  status: "Coming soon"
+  title: "Watchlist & thesis tracker"
+  blurb: "A running, dated record of names under watch and the reasoning behind each — kept honest in public."

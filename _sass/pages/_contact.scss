@@ -1,1 +1,40 @@
-// populated in a later milestone
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 1.25rem;
+}
+
+.contact-card {
+  color: var(--fg);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.contact-card__value {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--up);
+  word-break: break-all;
+}
+
+.contact-footnote {
+  margin-top: 2.5rem;
+  font-size: var(--text-micro);
+  letter-spacing: 0.14em;
+}
+
+// 404 shares the terminal vocabulary.
+.error-page {
+  padding-block: clamp(4rem, 14vh, 8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.4rem;
+}
+
+.error-page__title {
+  font-size: var(--text-display);
+}

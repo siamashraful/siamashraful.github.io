@@ -1,0 +1,14 @@
+{% comment %}
+  Param: card (entry from _data/coverage.yml), index
+{% endcomment %}
+<article class="card card--tilt card--coverage" data-tilt data-reveal="scale" style="--reveal-i: {{ include.index | default: 0 }};">
+  <div class="card__meta">
+    <span class="numeric">{{ include.card.symbol }}</span>
+    <span class="chip chip--status">{{ include.card.status }}</span>
+  </div>
+  <h3>{{ include.card.title }}</h3>
+  <p class="card__body">{{ include.card.blurb }}</p>
+  <div class="card__placeholder" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+</article>

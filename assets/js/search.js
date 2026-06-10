@@ -1,7 +1,4 @@
----
----
 (function () {
-  const searchUrl = "{{ '/search.json' | relative_url }}";
   const input = document.getElementById('search-input');
   const resultsList = document.getElementById('search-results');
   const postList = document.getElementById('post-list');
@@ -9,6 +6,7 @@
   const pagination = loadMore ? loadMore.closest('.pagination') : null;
   if (!input || !resultsList || !postList) return;
 
+  const searchUrl = input.dataset.searchUrl || '/search.json';
   const pageSize = parseInt(postList.dataset.pageSize, 10) || 8;
   const posts = Array.from(postList.querySelectorAll('.post-list-item'));
   let visibleCount = 0;

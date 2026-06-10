@@ -1,6 +1,14 @@
 name: "Siam Ashraful"
 location: "Halifax, Nova Scotia"
-summary: "CS graduate; data analysis & UI/UX. Lineage, metadata, and AI-accelerated workflows."
+headline: "Investment & Data Analyst"
+summary: "Data analyst in banking — data traceability, lineage, and controls — building toward capital markets analysis."
+updated: "June 2026"
+
+strengths:
+  - "Data lineage mapping, metadata stewardship, and regulatory-ready documentation."
+  - "Risk control coordination, audit readiness support, and stakeholder alignment."
+  - "SQL, scripting, debugging complex pipelines, and visualizing flows with Visio."
+  - "Human-centered approach informed by technical support and AI evaluation experience."
 
 experience:
   - title: "Data Analyst, Data Traceability & Controls"
@@ -32,20 +40,24 @@ experience:
       - "Resolved stakeholder issues efficiently; documented SOPs for recurring requests."
 
 projects:
-  - name: "Library Seat Reservation UI (Unity)"
-    summary: "Live seat management with mobile reservations and real-time display."
-    stack: ["Unity", "C#"]
-  - name: "Android Buy/Sell Platform"
-    summary: "GPS listings, Firebase auth, card verification algorithm, modern UI."
-    stack: ["Android", "Firebase", "Java"]
+  - name: "Library Seat Reservation (Unity)"
+    summary: "Real-time campus seat map: live availability display with a mobile reservation workflow that updates the floor screen as bookings land."
+    stack: ["Unity", "C#", "Realtime UI"]
+  - name: "Android Buy/Sell App"
+    summary: "Student marketplace with Firebase authentication, GPS-aware listings, and a card-verification algorithm for payment validation."
+    stack: ["Android", "Java", "Firebase", "Google Maps"]
 
 education:
-  - degree: "BSc in Computer Science (CGPA ~3.4/4.3)"
+  - degree: "BSc in Computer Science"
     school: "Dalhousie University"
     location: "Halifax, NS"
     year: "2024"
+    note: "CGPA ~3.4/4.3"
 
 skills:
-  languages: ["Python", "Java", "C", "SQL", "HTML", "CSS", "JavaScript"]
-  data: ["Collibra", "Visio", "MySQL Workbench", "Excel"]
-  design: ["Figma", "Accessibility", "Prototyping"]
+  - group: "Languages"
+    items: ["Python", "Java", "C", "SQL", "HTML", "CSS", "JavaScript"]
+  - group: "Data tooling"
+    items: ["Collibra", "Visio", "MySQL Workbench", "Excel"]
+  - group: "Design"
+    items: ["Figma", "Accessibility", "Prototyping"]
