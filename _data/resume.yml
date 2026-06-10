@@ -1,34 +1,46 @@
 name: "Siam Ashraful"
 location: "Halifax, Nova Scotia"
-headline: "Investment & Data Analyst"
-summary: "Data analyst in banking — data traceability, lineage, and controls — building toward capital markets analysis."
+headline: "Investment Analyst"
+summary: "Investment Analyst at Invest Nova Scotia — sourcing, diligencing, and supporting investments in ICT and AI startups, on a data analytics foundation built at RBC and TSX Trust."
 updated: "June 2026"
 
 strengths:
-  - "Data lineage mapping, metadata stewardship, and regulatory-ready documentation."
-  - "Risk control coordination, audit readiness support, and stakeholder alignment."
-  - "SQL, scripting, debugging complex pipelines, and visualizing flows with Visio."
-  - "Human-centered approach informed by technical support and AI evaluation experience."
+  - "Investment sourcing, due diligence, and committee-ready memorandums across ICT and AI."
+  - "Market and industry research in artificial intelligence, software, and emerging technology sectors."
+  - "Data lineage, risk mapping, and audit-ready documentation from banking compliance work at RBC."
+  - "Founder-friendly communication, honed across technical support, AI evaluation, and ecosystem work."
 
 experience:
+  - title: "Investment Analyst"
+    company: "Invest Nova Scotia"
+    location: "Halifax, NS"
+    start: "2026"
+    end:
+    points:
+      - "Source and evaluate ICT and AI startups across Nova Scotia, building the investment pipeline through relationships with founders, accelerators, and venture investors."
+      - "Conduct due diligence across business models, market opportunity, competitive positioning, financial performance, and management teams."
+      - "Prepare investment committee memorandums summarizing diligence findings, financial analysis, market assessments, key risks, and recommendations."
+      - "Research AI, software, and emerging technology markets to inform investment decisions and support the province's startup ecosystem."
+
   - title: "Data Analyst, Data Traceability & Controls"
     company: "RBC (via Apex Systems)"
     location: "Halifax, NS"
     start: "2025"
-    end:
+    end: "2026"
     points:
-      - "Documented Critical Data Elements (CDEs) and prepared risk mapping artifacts."
-      - "Built lineage diagrams in Visio; collaborated with Metadata teams to upload lineage into Collibra."
-      - "Improved documentation quality and consistency across reporting → origination flows."
+      - "Traced lineage for Critical Data Elements across reporting, source, and origination systems to meet compliance and audit requirements."
+      - "Validated database sources and ETL processes with application custodians, interpreting SQL and COBOL transformation logic."
+      - "Built Visio flow diagrams and risk mapping documents covering transformations, risk points, and controls; integrated lineage into Collibra."
+      - "Delivered data-flow walkthroughs for report owners toward audit-readiness approval, contributing to the team avoiding millions in potential regulatory fines."
 
-  - title: "AI Evaluation Specialist"
+  - title: "AI Evaluator (Freelance)"
     company: "Outlier AI"
     location: "Remote"
     start: "2024"
     end: "2025"
     points:
-      - "Evaluated AI outputs with rubric-based scoring; wrote clear rationales for judgments."
-      - "Iterated prompts to improve reliability and reduce ambiguity."
+      - "Evaluated Python and Java AI code outputs and ran multi-turn prompt engineering to detect and correct LLM failures."
+      - "Validated structured datasets (CSV, JSON) and LLM tool integrations; maintained a 4.5/5 performance rating."
 
   - title: "Technical Support Associate"
     company: "TSX Trust (NTT Data)"
@@ -36,8 +48,8 @@ experience:
     start: "2024"
     end: "2025"
     points:
-      - "Maintained and updated shareholder records using CARES (CRM), ensuring data integrity."
-      - "Resolved stakeholder issues efficiently; documented SOPs for recurring requests."
+      - "Maintained shareholder records in the CARES CRM with a 95%+ QA score, ensuring accuracy and data integrity."
+      - "Guided shareholders through estate processing, sales, and compliance documentation (T5, NR301, NR4, 1099-DIV)."
 
 projects:
   - name: "Library Seat Reservation (Unity)"
@@ -52,12 +64,13 @@ education:
     school: "Dalhousie University"
     location: "Halifax, NS"
     year: "2024"
-    note: "CGPA ~3.4/4.3"
 
 skills:
-  - group: "Languages"
-    items: ["Python", "Java", "C", "SQL", "HTML", "CSS", "JavaScript"]
-  - group: "Data tooling"
-    items: ["Collibra", "Visio", "MySQL Workbench", "Excel"]
-  - group: "Design"
-    items: ["Figma", "Accessibility", "Prototyping"]
+  - group: "Investment practice"
+    items: ["Sourcing & pipeline", "Due diligence", "IC memorandums", "Market research", "Financial analysis"]
+  - group: "Programming & web"
+    items: ["Python", "Java", "C", "SQL", "JavaScript", "React", "PHP", "HTML/CSS"]
+  - group: "Data & platforms"
+    items: ["Collibra", "Visio", "Excel", "MongoDB", "AWS", "Jira", "Confluence", "ServiceNow"]
+  - group: "Design & process"
+    items: ["Figma", "Web design", "Agile", "Scrum"]

@@ -25,7 +25,7 @@ Build with a UTF-8 locale (`LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8`) or the Sass co
 - **Theme system:** inline no-flash script in `_layouts/default.html` head sets `data-theme` from localStorage → prefers-color-scheme; `theme-toggle.js` swaps it with a View Transitions circular reveal (feature-detected).
 - **Search contract:** `search.js` hard-codes `#search-input`, `#search-results`, `#post-list`, `#load-more`, `.post-list-item`. The /blog/ markup (blog.md + `_includes/post-card.html`) must keep them.
 - **URL invariants:** `/`, `/about/`, `/profile/`, `/projects/`, `/blog/`, `/contact/`, `/YYYY/MM/DD/title/` posts, `/search.json`, `/assets/resume/resume.pdf`. The permalink pattern contains `:categories` — never add `categories` to post front matter or URLs shift. Nav labels (Experience, Notes) intentionally differ from URLs (/profile/, /blog/).
-- **Facts policy:** site copy must stay truthful to `_data/resume.yml`. The "Investment & Data Analyst" identity is approved positioning; never invent titles, credentials, metrics, tickers, or returns. Coverage cards stay placeholders until the owner supplies real write-ups.
+- **Facts policy:** site copy must stay truthful to `_data/resume.yml`. "Investment Analyst" is Siam's actual title at Invest Nova Scotia (Jan 2026–); never invent credentials, metrics, deal names, tickers, or returns. Coverage cards stay placeholders until the owner supplies real write-ups.
 
 ## Gotchas
 
