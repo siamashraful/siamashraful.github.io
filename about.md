@@ -7,7 +7,7 @@ permalink: /about/
 description: "Who I am, how I got here, and what I do now."
 ---
 
-<div class="prose">
+<div class="prose" markdown="1">
 
 I'm Siam — an **Investment Analyst at Invest Nova Scotia**, working with
 innovative startups and high-growth companies across the province, primarily in
