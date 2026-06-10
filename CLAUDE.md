@@ -4,24 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Siam Ashraful's personal site and blog (siamashraful.github.io), built with Jekyll and deployed automatically by GitHub Pages on push to `main`. There is no separate build/deploy CI and no test suite.
+Siam Ashraful's personal site (siamashraful.github.io) — an Investment & Data Analyst portfolio built with Jekyll, deployed automatically by GitHub Pages on push to `main`. No separate CI, no test suite. Design language: "capital-markets terminal meets editorial" — dark-first with a full light theme, hand-rolled animations, zero external requests (system fonts, no trackers).
 
 ## Commands
 
 ```bash
-bundle install            # install dependencies (Ruby >= 3.1, github-pages gem)
+bundle install            # needs Ruby 3.x (NOT 4.x — commonmarker pin); use /opt/homebrew/opt/ruby@3.4
 bundle exec jekyll serve  # local preview at http://localhost:4000
 ```
 
+Build with a UTF-8 locale (`LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8`) or the Sass converter dies on non-ASCII characters. The extra stdlib gems in the Gemfile (csv, base64, webrick…) exist for local modern-Ruby builds only; GitHub Pages ignores them.
+
 ## Architecture
 
-- **Custom layouts override the declared theme.** `_config.yml` declares the Minimal Mistakes remote theme, but the site actually renders through fully local layouts (`_layouts/default.html`, `page.html`, `post.html`) and includes (`_includes/`). The theme dependency is effectively vestigial — don't assume Minimal Mistakes conventions, features, or classes apply.
-- **Styling is one monolithic file.** Nearly all CSS lives in `assets/css/main.scss` (~1000 lines), driven by CSS custom properties for light/dark theming. `_sass/_variables.scss` is nearly empty.
-- **Dark mode** is a no-flash inline script in the `<head>` of `_layouts/default.html`: sets `data-theme` on `<html>` from `localStorage`, falling back to `prefers-color-scheme`. Theme-dependent styles key off `[data-theme]`.
-- **Search** is client-side Lunr: `assets/js/lunr.min.js` (vendored), `assets/js/search.js` (has Liquid front matter — it's processed by Jekyll), and `search.json` as the generated index. Posts live in `_posts/` (`YYYY-MM-DD-title.md`).
-- **Known content duplication** (intentional debt, documented in the overhaul plan): Home (`index.md`) and `about.md` both render `_includes/about-me.md`; résumé facts exist in `resume.md`, `_data/resume.yml` (currently unused for rendering), and `assets/resume/resume.pdf`, which can drift apart. When changing biography or résumé content, check all of these.
-- `.github/workflows/` and `.github/steps/` are leftovers from the GitHub Skills "GitHub Pages" tutorial template — not real CI for this site.
+- **Content is data-driven.** `_data/resume.yml` is the single source of truth for roles, education, skills, and projects — it renders `/profile/`, the home timeline, and project cards. It carries an `updated:` field (owner-verified date) shown on /profile/; bump it when facts change. `_data/coverage.yml` holds the placeholder research cards; `_data/nav.yml` drives the header.
+- **SCSS is token-driven partials** under `_sass/` (`_tokens.scss` → base → `components/` → `pages/` → `_animations.scss`), imported by the `assets/css/main.scss` manifest. GitHub Pages runs old Ruby Sass: **`@import` only — `@use`/`@forward` and modern media-query syntax (`@media not (...)`) break the build.** Light theme lives in a mixin in `_tokens.scss` shared by `[data-theme="light"]` and the `prefers-color-scheme` fallback.
+- **JS is native ES modules** in `assets/js/` entered via `main.js` (one bundle, modules no-op when their root element is absent; the hero chart dynamic-imports only on home). No Liquid in any JS file — `search.js` reads its index URL from a `data-search-url` attribute. `lunr.min.js` is vendored and loads classically on /blog/ only.
+- **Animation contract:** pre-animation hidden states only apply under `html.motion-ok`, set by an inline head script when JS runs AND the user hasn't requested reduced motion — so no-JS and reduced-motion visitors always get the finished static page. Every module also early-returns via `lib/motion.js#prefersReducedMotion()`. Canvases read live theme colors via `lib/theme.js` and repaint on `data-theme` mutation.
+- **Theme system:** inline no-flash script in `_layouts/default.html` head sets `data-theme` from localStorage → prefers-color-scheme; `theme-toggle.js` swaps it with a View Transitions circular reveal (feature-detected).
+- **Search contract:** `search.js` hard-codes `#search-input`, `#search-results`, `#post-list`, `#load-more`, `.post-list-item`. The /blog/ markup (blog.md + `_includes/post-card.html`) must keep them.
+- **URL invariants:** `/`, `/about/`, `/profile/`, `/projects/`, `/blog/`, `/contact/`, `/YYYY/MM/DD/title/` posts, `/search.json`, `/assets/resume/resume.pdf`. The permalink pattern contains `:categories` — never add `categories` to post front matter or URLs shift. Nav labels (Experience, Notes) intentionally differ from URLs (/profile/, /blog/).
+- **Facts policy:** site copy must stay truthful to `_data/resume.yml`. The "Investment & Data Analyst" identity is approved positioning; never invent titles, credentials, metrics, tickers, or returns. Coverage cards stay placeholders until the owner supplies real write-ups.
 
-## Planned overhaul — read before large changes
+## Gotchas
 
-`docs/website-overhaul-plan.md` is the working brief for a major redesign (audit, content model, phased delivery, owner questionnaire). Its key constraint: **broad implementation must not begin until the launch-blocking questions in its section 10 are answered by the owner.** Much of the site's current content (roles, projects, skills, contact details) is flagged there as requiring owner verification — do not present or extend it as confirmed fact. Small fixes and content edits requested by the owner are fine.
+- A `[hidden] { display: none !important }` utility exists because component display rules would otherwise defeat the `hidden` attribute (search depends on it).
+- `{% raw %}{{ }}{% endraw %}` — layouts are Liquid-processed; escape literal braces in any inline script.
+- `docs/website-overhaul-plan.md` is historical (superseded by the June 2026 redesign); don't treat its open questions as blocking.

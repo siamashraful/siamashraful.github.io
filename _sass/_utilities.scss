@@ -1,3 +1,9 @@
+// Author display rules (e.g. .post-list { display: flex }) would
+// otherwise defeat the hidden attribute.
+[hidden] {
+  display: none !important;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

@@ -118,6 +118,11 @@
 }
 
 @media (max-width: 720px) {
+  // A three-row sticky bar would eat a third of a phone screen.
+  .site-header {
+    position: static;
+  }
+
   .site-header__inner {
     justify-content: center;
     text-align: center;

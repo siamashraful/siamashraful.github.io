@@ -1,6 +1,9 @@
 # Personal Website Overhaul: Discovery and Delivery Plan
 
-**Status:** Discovery — awaiting owner answers
+**Status:** Superseded — the June 2026 redesign implemented an Investment & Data
+Analyst portfolio at the owner's direction (hybrid positioning, placeholder
+coverage section, blog rebranded "Notes"), bypassing this discovery process.
+Kept for historical reference; its open questions are no longer blocking.
 **Prepared:** June 8, 2026
 **Site:** `siamashraful.github.io`
 

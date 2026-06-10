@@ -1,37 +1,44 @@
-# Siam Ashraful — GitHub Pages site
+# Siam Ashraful — siamashraful.github.io
 
-Modern personal site and blog for Siam Ashraful using GitHub Pages + Jekyll.
+Investment & Data Analyst portfolio. Jekyll on GitHub Pages, hand-rolled design
+system and animations, zero dependencies beyond the `github-pages` gem.
+
+**Design:** "capital-markets terminal meets editorial" — dark-first with a full
+light theme, hairline grids, mono tabular numerals, serif display type, and a
+market-green accent system.
 
 ## Features
-- Responsive layouts with prefers-color-scheme dark mode toggle
-- Résumé page with downloadable PDF
-- Projects, blog, contact, and about pages
-- Lunr-powered client-side search and JSON index
-- Built-in SEO tags and sitemap via GitHub Pages plugins
 
-## Quick start
-1. Install Ruby (>= 3.1 recommended) and Bundler.
-2. Install dependencies:
-   ```bash
-   bundle install
-   ```
-3. Run a local preview:
-   ```bash
-   bundle exec jekyll serve
-   ```
-4. Visit [http://localhost:4000](http://localhost:4000) in your browser.
+- Procedural canvas market chart that draws itself behind the hero and tracks the cursor
+- Headline scramble/decode, staggered scroll reveals, scroll-drawn experience timeline
+- 3D tilt + glare cards, magnetic CTAs, count-up stats, seeded decorative sparklines
+- View Transitions theme toggle (circular reveal) and cross-page fades, feature-detected
+- Every animation degrades to a finished static page under `prefers-reduced-motion` or without JS
+- Content rendered from `_data/resume.yml` (one source of truth, owner-verified `updated` date)
+- "Coverage & analysis" placeholder slots for upcoming research write-ups
+- Notes (blog) with Lunr client-side search and editorial article pages
+- System fonts only, no trackers, no external requests
 
-## Customization checklist
-- Update `_config.yml` with your GitHub username and any analytics IDs.
-- Update `resume.md` and the PDF in `assets/resume/` to modify résumé content.
-- Add new posts in `_posts/` using the `YYYY-MM-DD-title.md` naming pattern.
-- Replace placeholder images in `assets/img/` with your own optimized `.webp` files.
+## Local development
+
+Requires Ruby 3.x (the `github-pages` gem does not support Ruby 4) and a UTF-8 locale:
+
+```bash
+bundle install
+LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll serve
+# → http://localhost:4000
+```
+
+## Updating content
+
+| What | Where |
+| --- | --- |
+| Roles, education, skills, projects | `_data/resume.yml` (bump `updated:`) |
+| Coverage/research cards | `_data/coverage.yml` |
+| Navigation | `_data/nav.yml` |
+| Notes (posts) | `_posts/YYYY-MM-DD-title.md` |
+| Résumé PDF | `assets/resume/resume.pdf` |
 
 ## Deployment
-Push changes to the default branch (usually `main`). GitHub Pages will build the site automatically—no additional CI is required.
 
-For custom domains, add a `CNAME` file with your domain and configure DNS records.
-
-## Planned overhaul
-
-The discovery audit, phased delivery plan, content model proposal, and owner questionnaire for the next major redesign are documented in [`docs/website-overhaul-plan.md`](docs/website-overhaul-plan.md). The plan intentionally requires factual, audience, privacy, and design decisions before broad implementation begins.
+Push to `main`; GitHub Pages builds and deploys automatically.
