@@ -9,11 +9,12 @@ Siam Ashraful's personal site (siamashraful.github.io) — an Investment & Data 
 ## Commands
 
 ```bash
-bundle install            # needs Ruby 3.x (NOT 4.x — commonmarker pin); use /opt/homebrew/opt/ruby@3.4
-bundle exec jekyll serve  # local preview at http://localhost:4000
+bundle install                         # needs Ruby 3.x (NOT 4.x — commonmarker pin); use /opt/homebrew/opt/ruby@3.4
+bundle exec jekyll serve --livereload  # local preview at http://localhost:4000
+bundle exec jekyll build               # one-off build into _site/
 ```
 
-Build with a UTF-8 locale (`LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8`) or the Sass converter dies on non-ASCII characters. The extra stdlib gems in the Gemfile (csv, base64, webrick…) exist for local modern-Ruby builds only; GitHub Pages ignores them.
+Build with a UTF-8 locale (`LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8`) or the Sass converter dies on non-ASCII characters. The extra stdlib gems in the Gemfile (csv, base64, webrick…) exist for local modern-Ruby builds only; GitHub Pages ignores them. `_site/` and `.jekyll-cache/` are gitignored build output — never commit or hand-edit them.
 
 ## Architecture
 
@@ -30,4 +31,5 @@ Build with a UTF-8 locale (`LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8`) or the Sass co
 
 - A `[hidden] { display: none !important }` utility exists because component display rules would otherwise defeat the `hidden` attribute (search depends on it).
 - `{% raw %}{{ }}{% endraw %}` — layouts are Liquid-processed; escape literal braces in any inline script.
+- CLAUDE.md, README.md, LICENSE, and `docs/` are in `_config.yml`'s `exclude:` list — editing them never affects the published site.
 - `docs/website-overhaul-plan.md` is historical (superseded by the June 2026 redesign); don't treat its open questions as blocking.
