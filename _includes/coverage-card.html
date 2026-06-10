@@ -4,6 +4,7 @@
 <article class="card card--tilt card--coverage" data-tilt data-reveal="scale" style="--reveal-i: {{ include.index | default: 0 }};">
   <div class="card__meta">
     <span class="numeric">{{ include.card.symbol }}</span>
+    <span class="card__spark" data-sparkline data-spark-seed="{{ include.index | default: 0 | plus: 1 }}" aria-hidden="true"></span>
     <span class="chip chip--status">{{ include.card.status }}</span>
   </div>
   <h3>{{ include.card.title }}</h3>
