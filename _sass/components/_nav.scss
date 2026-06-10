@@ -1,1 +1,130 @@
-// populated in a later milestone
+// Sticky terminal-bar header with scroll-progress "index bar".
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--scrim);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--header-h);
+  flex-wrap: wrap;
+  padding-block: 0.4rem;
+}
+
+.wordmark {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--fg);
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: none;
+    color: var(--up);
+  }
+}
+
+.wordmark__tick {
+  color: var(--up);
+  margin-right: 0.55em;
+  font-size: 0.8em;
+  display: inline-block;
+  animation: pulse-dot 3.2s ease-in-out infinite;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2.4vw, 1.8rem);
+
+  > a {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding-block: 0.35em;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--up);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform var(--dur-2) var(--ease-out);
+    }
+
+    &:hover {
+      color: var(--fg);
+      text-decoration: none;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &[aria-current="page"] {
+      color: var(--fg);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  transition:
+    color var(--dur-1) var(--ease-out),
+    border-color var(--dur-1) var(--ease-out),
+    transform var(--dur-1) var(--ease-out);
+
+  &:hover {
+    color: var(--up);
+    border-color: var(--hairline-strong);
+    transform: translateY(-1px);
+  }
+
+  .theme-icon {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+
+  [data-theme-icon] {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header__inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

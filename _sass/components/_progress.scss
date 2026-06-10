@@ -1,1 +1,14 @@
-// populated in a later milestone
+// Scroll progress: a 2px market-index line along the header's bottom
+// edge, driven by progress.js (scaleX 0→1).
+
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--up), var(--up-bright));
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}

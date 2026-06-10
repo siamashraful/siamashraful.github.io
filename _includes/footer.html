@@ -1,4 +1,10 @@
 <footer class="site-footer" role="contentinfo">
-  <div>&copy; {{ "now" | date: "%Y" }} {{ site.author.name }} — {{ site.author.location }}</div>
-  {% include social-links.html %}
+  <div class="container site-footer__inner">
+    <div class="site-footer__id">
+      <span class="mono site-footer__mark"><span class="text-up" aria-hidden="true">▲</span> SIAM ASHRAFUL</span>
+      <span class="mono text-muted">HALIFAX, NOVA SCOTIA · © {{ 'now' | date: '%Y' }}</span>
+    </div>
+    {% include social-links.html %}
+    <p class="mono text-muted site-footer__note">Built with Jekyll · Hosted on GitHub Pages · No trackers</p>
+  </div>
 </footer>

@@ -1,1 +1,50 @@
-// populated in a later milestone
+.site-footer {
+  border-top: 1px solid var(--hairline);
+  padding-block: 2.5rem;
+  font-size: var(--text-small);
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.site-footer__id {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: var(--text-micro);
+  letter-spacing: 0.1em;
+}
+
+.site-footer__mark {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.site-footer__note {
+  font-size: var(--text-micro);
+  letter-spacing: 0.05em;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+
+    &:hover {
+      color: var(--up);
+      text-decoration: none;
+    }
+  }
+}
