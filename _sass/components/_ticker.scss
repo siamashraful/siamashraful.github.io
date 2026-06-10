@@ -1,1 +1,65 @@
-// populated in a later milestone
+// Infinite ticker-tape marquee. Two identical tracks (second is
+// aria-hidden) translate -50% on a loop. Reduced-motion visitors get a
+// static wrapped list instead; the duplicate track disappears.
+
+.ticker {
+  overflow: hidden;
+  border-block: 1px solid var(--hairline);
+  background: var(--bg-elev);
+  padding-block: 0.8rem;
+
+  &:hover .ticker__rail {
+    animation-play-state: paused;
+  }
+}
+
+.ticker__rail {
+  display: flex;
+  width: max-content;
+  gap: 2.75rem;
+  animation: ticker-scroll var(--ticker-dur, 46s) linear infinite;
+}
+
+.ticker__track {
+  display: flex;
+  align-items: center;
+  gap: 2.75rem;
+}
+
+.ticker__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6em;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  white-space: nowrap;
+
+  .ticker__symbol {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  .ticker__delta {
+    color: var(--up);
+    font-size: var(--text-micro);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker__rail {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+  }
+
+  .ticker__track {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+
+  .ticker__track--dup {
+    display: none;
+  }
+}

@@ -1,1 +1,43 @@
-// populated in a later milestone
+// Pills: tags, tech stacks, and coverage status chips.
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.25em 0.8em;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip--status {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: var(--gold-soft);
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+}
+
+.chip--live {
+  color: var(--up);
+  border-color: var(--up);
+  background: var(--up-soft);
+}

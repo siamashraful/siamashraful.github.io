@@ -1,1 +1,61 @@
-// populated in a later milestone
+// CTAs. Magnetic buttons get their translate from magnetic.js via
+// inline transform; CSS owns the spring-back transition.
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.85em 1.6em;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--up);
+  border: 1px solid var(--up);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition:
+    transform var(--dur-2) var(--ease-spring),
+    background-color var(--dur-1) var(--ease-out),
+    box-shadow var(--dur-2) var(--ease-out);
+
+  &:hover {
+    text-decoration: none;
+    background: var(--up-bright);
+    border-color: var(--up-bright);
+    box-shadow: 0 6px 24px var(--up-soft);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  .btn__arrow {
+    display: inline-block;
+    transition: transform var(--dur-2) var(--ease-out);
+  }
+
+  &:hover .btn__arrow {
+    transform: translateX(4px);
+  }
+}
+
+.btn--ghost {
+  color: var(--fg);
+  background: transparent;
+  border-color: var(--hairline-strong);
+
+  &:hover {
+    background: var(--up-soft);
+    border-color: var(--up);
+    color: var(--up);
+    box-shadow: none;
+  }
+}
+
+.btn--small {
+  padding: 0.55em 1.1em;
+  font-size: var(--text-micro);
+}

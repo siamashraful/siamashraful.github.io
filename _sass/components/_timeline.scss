@@ -1,1 +1,119 @@
-// populated in a later milestone
+// Experience timeline. The rail's progress line is scaled by
+// timeline.js as the section scrolls; nodes ignite as they pass.
+
+.timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 2.25rem;
+
+  // Static rail.
+  &::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: var(--hairline);
+  }
+}
+
+// Animated progress line laid over the rail.
+.timeline__progress {
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: linear-gradient(var(--up), var(--up-bright));
+  transform: scaleY(var(--progress, 0));
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.timeline__entry {
+  position: relative;
+  padding-bottom: clamp(1.75rem, 4vh, 2.75rem);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  // Node.
+  &::before {
+    content: "";
+    position: absolute;
+    left: calc(-2.25rem + 3px);
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--hairline-strong);
+    transition:
+      background-color var(--dur-2) var(--ease-out),
+      border-color var(--dur-2) var(--ease-out);
+  }
+
+  &.is-lit::before {
+    background: var(--up);
+    border-color: var(--up);
+    animation: node-ignite 900ms var(--ease-out) 1;
+  }
+}
+
+.timeline__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  h3 {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 650;
+  }
+}
+
+.timeline__org {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--up);
+}
+
+.timeline__dates {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.timeline__body {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+
+    li {
+      padding-left: 1.2em;
+      position: relative;
+
+      &::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--up);
+      }
+    }
+  }
+}
