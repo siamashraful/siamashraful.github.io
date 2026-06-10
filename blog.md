@@ -2,7 +2,7 @@
 layout: page
 title: Notes
 eyebrow: "Notes — Working in public"
-heading: "Working notes on markets, data, and building things"
+heading: "Working notes on capital, compute, and what gets built"
 permalink: /blog/
 description: "Freeform writing. The structured research lives in the coverage section."
 ---

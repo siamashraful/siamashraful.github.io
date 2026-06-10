@@ -4,7 +4,7 @@ title: Contact
 eyebrow: "Contact — Open line"
 heading: "The fastest route is email."
 permalink: /contact/
-description: "Markets, data, roles, collaborations — all welcome."
+description: "Pitches, markets, data, collaborations — all welcome. If you're building in Nova Scotia, especially so."
 ---
 
 <div class="contact-grid">

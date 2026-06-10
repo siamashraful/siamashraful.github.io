@@ -1,10 +1,10 @@
 ---
 layout: page
 title: About
-eyebrow: "About — The long version"
+eyebrow: "About — The long position"
 heading: "Numbers have origins. I go find them."
 permalink: /about/
-description: "Who I am, how I got here, and what I do now."
+description: "Who I am, how I got here, and why I think the next decade runs through digital intelligence."
 ---
 
 <div class="prose" markdown="1">
@@ -20,6 +20,14 @@ and writing the investment committee memorandums that carry a recommendation to
 senior leadership. Around that core, I spend a lot of time in market research —
 AI, software, and the emerging sectors where Nova Scotia can build real
 competitive advantage.
+
+I work in AI investment because the relationship between people and software is
+being renegotiated: we used to operate our tools, and increasingly we delegate
+work to them. That progress is real, compounding, and long — which is exactly
+why it deserves careful underwriting rather than cheerleading. Nova Scotia
+doesn't need to win the compute race to win from it: a small province that backs
+durable companies patiently can build real advantage over a decade. My job is to
+find those companies and trace their numbers to the source.
 
 ## The path here
 

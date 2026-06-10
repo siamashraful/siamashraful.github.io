@@ -27,34 +27,36 @@ layout: default
     </div>
     <p class="snapshot__line lead" data-reveal style="--reveal-i: 4;">
       The thread through all of it: I find out where the numbers actually come from.
-      Lineage in a bank, shareholder records at a transfer agent, rubric scores for AI —
-      and now, the numbers behind venture investments in Nova Scotia.
+      Data lineage in a bank, shareholder records at a transfer agent, rubric scores
+      for AI outputs — and now the numbers behind venture investment in Nova Scotia.
+      If digital intelligence compounds the way I think it will, verified inputs only
+      become more valuable.
     </p>
   </div>
 </section>
 
 <section class="section section--hairline coverage" id="coverage" aria-label="Coverage and analysis">
   <div class="container">
-    {% include section-heading.html eyebrow="Coverage & Analysis" title="Research, in the open" %}
+    {% include section-heading.html eyebrow="Research — Initiating coverage" title="Where digital intelligence goes to work" %}
     <div class="card-grid">
       {% for card in site.data.coverage %}
       {% include coverage-card.html card=card index=forloop.index0 %}
       {% endfor %}
     </div>
-    <p class="coverage__note mono" data-reveal>— Under construction. Published analysis lands here as it's completed. Nothing on this site is investment advice. —</p>
+    <p class="coverage__note mono" data-reveal>— Under construction. Published analysis lands here as it clears my own diligence. Nothing on this site is investment advice. —</p>
   </div>
 </section>
 
 <section class="section section--hairline" aria-label="Experience">
   <div class="container">
-    {% include section-heading.html eyebrow="Experience" title="Where I've worked" more_label="Full résumé" more_url="/profile/" %}
+    {% include section-heading.html eyebrow="Experience — Positions held" title="Trained on primary sources" more_label="Full résumé" more_url="/profile/" %}
     {% include timeline.html %}
   </div>
 </section>
 
 <section class="section section--hairline" aria-label="Projects">
   <div class="container">
-    {% include section-heading.html eyebrow="Projects" title="Things I've built" more_label="All projects" more_url="/projects/" %}
+    {% include section-heading.html eyebrow="Projects — Proof of work" title="I evaluate builders. I've been one." more_label="All projects" more_url="/projects/" %}
     <div class="card-grid">
       {% for project in site.data.resume.projects %}
       <article class="card card--tilt" data-tilt data-reveal="scale" style="--reveal-i: {{ forloop.index0 }};">
@@ -72,7 +74,7 @@ layout: default
 
 <section class="section section--hairline" aria-label="Latest notes">
   <div class="container">
-    {% include section-heading.html eyebrow="Notes" title="Latest writing" more_label="All notes" more_url="/blog/" %}
+    {% include section-heading.html eyebrow="Notes — From the desk" title="Writing compounds too" more_label="All notes" more_url="/blog/" %}
     <ul class="post-list">
       {% for post in site.posts limit: 2 %}
       {% include post-card.html post=post index=forloop.index0 %}
@@ -84,7 +86,7 @@ layout: default
 <section class="section section--hairline contact-band" aria-label="Contact">
   <div class="container contact-band__inner">
     <p class="eyebrow" data-reveal>Open position</p>
-    <h2 class="contact-band__title" data-reveal style="--reveal-i: 1;">Let's talk markets, data,<br>or both at once.</h2>
+    <h2 class="contact-band__title" data-reveal style="--reveal-i: 1;">Building with digital intelligence?<br>Walk me through the numbers.</h2>
     <div class="hero__cta" data-reveal style="--reveal-i: 2;">
       <a class="btn" data-magnetic href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
       <a class="btn btn--ghost" data-magnetic href="{{ site.author.social.linkedin }}">LinkedIn ↗</a>
